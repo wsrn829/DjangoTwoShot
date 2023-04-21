@@ -11,6 +11,19 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'user_signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'user_login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
     {% block content %}{% endblock content %}
     <footer>
     </footer>
