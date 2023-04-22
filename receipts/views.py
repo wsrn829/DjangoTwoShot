@@ -31,6 +31,7 @@ def create_receipt(request):
     return render(request, "receipts/create.html", context)
 
 
+@login_required
 def category_list(request):
     categories = ExpenseCategory.objects.all()
     context = {
@@ -39,6 +40,7 @@ def category_list(request):
     return render(request, "receipts/category_list.html", context)
 
 
+@login_required
 def account_list(request):
     accounts = Account.objects.all()
     context = {
@@ -47,6 +49,7 @@ def account_list(request):
     return render(request, "receipts/account_list.html", context)
 
 
+@login_required
 @login_required
 def create_category(request):
     if request.method == "POST":
